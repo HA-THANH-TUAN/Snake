@@ -1,0 +1,381 @@
+/*
+*  html5resetcss
+*/
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
+body{line-height:1}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+nav ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:none}
+a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}
+ins{background-color:#ff9;color:#000;text-decoration:none}
+mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
+del{text-decoration:line-through}
+abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
+table{border-collapse:collapse;border-spacing:0}
+hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
+input,select{vertical-align:middle}
+
+
+.initial-game{
+    position: fixed;
+    top: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+.wrapper-setting{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+    
+}
+
+.setting {
+    /* pointer-events: none; */
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000e6;
+}
+
+.previous-playing-game .wraper-button-setup .button-setup-pre{
+    width: 80px;
+    height: 80px;
+    font-size: 50px ;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.previous-playing-game .wraper-button-setup .button-setup-pre:active{
+    transform: scale(0.8);
+    transition: all ease-out 0.2s;
+}
+
+.previous-playing-game {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:rgba(0, 0, 0, 0.671);
+    
+} 
+
+
+.initial-game .openning-game {
+    background:rgba(0, 0, 0, 0.671);
+    
+    width:100%;
+    height: 100vh;
+    display: flex;   
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+
+}
+.initial-game .openning-game .title-game {
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-bottom: 100px;
+    position: relative;
+
+}
+.initial-game .openning-game .setting-game:hover{
+    background: blue;
+    border-radius: 50%;
+}
+.initial-game .openning-game .setting-game {
+    position: absolute;
+    top:20px;
+    right: 20px;
+    background-color: transparent;
+    cursor: pointer;
+    
+    font-size: 30px;
+    width: 60px;
+    height: 60px;
+    color: wheat;
+    border-radius: 10px;
+}
+
+.initial-game .openning-game .button-start {
+    background-color:orangered;
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bolder ;
+    color: wheat;
+    cursor: pointer;
+
+
+
+}
+.initial-game .openning-game .button-start:hover   {
+    opacity: 0.7;
+}
+
+.main{
+    padding: 10px;
+}
+.main canvas {
+    border:1px solid rgb(255, 255, 255);
+    /* background-color: rgba(0, 0, 108, 0.821); */
+}
+
+.console-wraper {
+    width: 150x;
+    height: 150px;
+ 
+    
+}
+
+.game{
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+}
+.game .navigate{
+    height:100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:60px;
+
+}
+
+.game .navigate{
+    /* width: 100vh; */
+    
+}
+.game .wrapper-control{
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+.game .wrapper-control section{
+    margin: 0 20px;
+}
+
+.console-wraper .console {
+    display: grid;
+    grid-template-columns: 50px 50px 50px ;
+    grid-template-rows: 50px 50px 50px ;
+
+}
+.console-wraper .console {
+    display: grid;
+    grid-template-columns: 40px 40px 40px ;
+    grid-template-rows: 40px 40px 40px ;
+
+}
+.console-wraper .console .console-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    border-radius: 6px;
+    color: whitesmoke;
+    border-color: transparent;
+    background-color:rgb(8, 0, 255);
+    
+    cursor: pointer;
+}
+.game-controls .game-control:hover {
+    opacity: 0.7;
+    cursor: pointer;
+
+}
+.game-controls .game-control .content{
+    margin-left:6px;
+}
+
+.game-controls .game-control {
+    width: 100px;
+    padding: 10px 0 ;
+    border-radius: 5px;
+    margin: 5px 10px;
+    border: none;
+    font-weight: 700;
+}
+.console-wraper .console .console-item:active {
+    opacity: 0.7;
+    color: black;
+}
+
+.console-wraper .console .console-item-left {
+    grid-area:2/1/3/2;
+}
+
+.console-wraper .console .console-item-right {
+    grid-area:2/3/3/4;
+}
+
+.console-wraper .console .console-item-up {
+    grid-area:1/2/2/3;
+}
+
+.console-wraper .console .console-item-down {
+    grid-area:3/2/4/3;
+}
+
+.form-setting{
+    background: #ffbd17;
+    border-radius: 10px;
+
+    max-width: 400px;
+    padding: 20px;
+
+    position:relative ;
+}
+.form-setting .close-setting{
+    font-size: 20px;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    top: 10px;
+    right:10px;
+    cursor: pointer; 
+
+    background: transparent;
+    border: 0;
+}
+.form-setting .setting-item {
+    padding: 10px 0;
+}
+.form-setting .close-setting:hover{
+    opacity: 0.8;
+}
+
+.form-setting .setting-item .input-text {
+    padding: 5px 10px;
+    font-size: 16px;
+    width: 120px;
+    border-radius: 5px;
+    border: 0;
+}
+.form-setting .setting-item-throw-wall {
+    display: flex;
+}
+.form-setting .setting-item label {
+    font-weight: 700;
+    font-size: 18px;
+}
+.form-setting .commit-setting{
+    text-align: center;
+}
+
+.setting-throw-wall {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+
+}
+.setting-throw-wall .throw-wall-item {
+    display: flex;
+    align-items: center;
+}
+.setting-throw-wall .throw-wall-item-no {
+    margin-left: 20px;
+}
+
+.form-setting .commit-setting button {
+    margin-top: 40px;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.main-game  {
+    width: 100vw ;height:100vh;
+    background:rgba(0, 0, 0, 0.441);
+}
+.main-game .game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+}
+.main-game .notify-result-game {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    background: #00000053;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.main-game .notify-result-game .notify-game {
+    padding: 20px;
+    min-width: 200px;
+    border-radius: 8px;
+    position: relative;
+    z-index: 5;
+    background: rgb(46, 46, 46);
+
+}
+.main-game .notify-result-game .notify-game .title {
+    font-weight: bolder;
+    font-size: 18px;
+    text-align: center;
+    color: white;
+    
+
+}
+.main-game .notify-result-game .notify-game .title p {
+
+}
+.main-game .notify-result-game .notify-game .press {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+
+}
+.main-game .notify-result-game .notify-game .press button {
+    border: none;
+    width: 90px;
+    padding: 8px 3px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.main-game .notify-result-game .notify-game .press button:hover {
+    background: orangered;
+    cursor: pointer;
+}
+
+
+
+
+@media screen {
+    
+}
+
+@media screen and (max-width: 500px) {
+    .game-controls .game-control .content{
+        display: none;
+    }
+    .game-controls .game-control{
+        width: 50px;
+        padding: 5px 0 ;
+        border-radius: 5px;
+        /* margin: 5px 10px; */
+        border: none;
+        font-weight: 700;
+    }
+}

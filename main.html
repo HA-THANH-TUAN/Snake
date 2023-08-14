@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body style="overflow: hidden;">
+    <div id="root">
+        <section style="display: none;" id="wrapper-setting" class="wrapper-setting">
+            <div class="setting">
+                <div class="form-setting" >
+                    <section>
+                        <button id="button-close-setting" class="close-setting"><i class="bi bi-x-lg"></i></button>
+                        <div class="setting-item" style="margin-top: 10px;"><label style="margin-right: 20px;" for="row_id">Row :</label><input class="input-text" id="row_id" type="number" placeholder="Row"></div>
+                        <div class="setting-item" style="margin-top: 10px;"><label style="margin-right: 20px;" for="column_id">Column :</label><input class="input-text" id="column_id" type="number" placeholder="Column"></div>
+                        <div class="setting-item" style="margin-top: 10px;"><label style="margin-right: 20px;" for="dimension-box_id">Dimesion Box :</label><input class="input-text" id="dimension-box_id" type="number" placeholder="Dimesion Box"></div>
+                        <div class="setting-item" style="margin-top: 10px;"><label style="margin-right: 20px;" for="time-speed_id">Time Speed :</label><input class="input-text" id="time-speed_id" type="number" placeholder="Time Speed"></div>
+                        <div class="setting-item" style="margin-top: 10px;"><label style="margin-right: 20px;" for="rest-box-win_id">Rest of box to win :</label><input class="input-text" id="rest-box-win_id" type="number" placeholder="Time Speed"></div>
+                    </section>
+                    
+                    <section>
+                        <div class="setting-item" style="margin-top: 10px;"><label style="margin-right: 20px;" for="key_up">Key Up :</label><input class="input-text" id="key_up" placeholder="Key Up"></div>
+                        <div class="setting-item" style="margin-top: 10px;"><label style="margin-right: 20px;" for="key_down">Key Down :</label><input class="input-text" id="key_down" placeholder="Key Down"></div>
+                        <div class="setting-item" style="margin-top: 10px;"><label style="margin-right: 20px;" for="key_left">Key Left :</label><input class="input-text" id="key_left" placeholder="Key Left"></div>
+                        <div class="setting-item" style="margin-top: 10px;"><label style="margin-right: 20px;" for="key_right">Key Right : </label><input class="input-text" id="key_right" placeholder="Key Right"></div>
+                    </section>
+
+                    <div class="setting-item setting-item-throw-wall" style="margin-top: 10px;">
+                        <label style="margin-right: 20px;">Throw wall :</label>
+                        <ul class="setting-throw-wall">
+                            <li class="throw-wall-item">
+                                <input type="radio" class="throw-wall" id="throw-wall-yes" name="" value=1>
+                                <label for="throw-wall-yes">YES</label>  
+                            </li>  
+                            <li class="throw-wall-item throw-wall-item-no">
+                                <input type="radio" class="throw-wall" id="throw-wall-no" name="" value=0>
+                                <label for="throw-wall-no">NO</label>    
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- <div class="commit-setting"><button id="button-commit-setup"  type="button"> OK</button></div> -->
+                </div>
+            </div>
+        </section>
+        <div id="initial-game" class="initial-game">
+            <div id="opening-game" class="openning-game"> 
+                <button title="Cấu hình game" id="setting-game" class="setting-game"><i class="bi bi-gear"></i></button>
+                <h2 class="title-game">SNAKE</h2>
+                <button id="button-openning-game" class="button-start">Bắt đầu</div>
+            </div>
+        </div>
+        <main style="display: none;position: relative;" id="main-game" class="main-game">   
+           <div class="game">
+                <div class="navigate">
+                    <section class="game-controls">
+                        <button class="game-control" id="returnGame_id"><span class="icon"><i class="bi bi-caret-left-fill"></i></span><span class="content">Return</span></button>
+                        <button class="game-control " id="reStartGame_id"><span><i class="bi bi-arrow-clockwise"></i></span> <span class="content">Restart</span></button>
+                        <button class="game-control " id="stopSnake_id"><span><i class="bi bi-pause-circle-fill"></i></span><span class="content">Pause</span></button>
+                        <button class="game-control " id="continueSnake_id"><span><i class="bi bi-play-fill"></i></span> <span class="content">Continue</span></button>
+                    </section>
+                </div>
+                <div id="main" class="main"></div>                   
+                <span class="score"></span>
+                <div class="wrapper-control">
+                    <section id="console-wraper" class="console-wraper">
+                        <div id="console" class="console">
+                            <button id="directToleft" class="console-item console-item-left"><i class="bi bi-caret-left-fill"></i></button>
+                            <button id="directToUp" class="console-item console-item-up"><i class="bi bi-caret-up-fill"></i></button>
+                            <button id="directToDown" class="console-item console-item-down"><i class="bi bi-caret-down-fill"></i></button>
+                            <button id="directToRight" class="console-item console-item-right"><i class="bi bi-caret-right-fill"></i></button>
+                        </div>
+                    </section>
+                </div>
+           </div>
+           <div style="display: none;" id="notify-result-game" class="notify-result-game">
+                <div class="notify-game"> 
+                    <h class="title">
+                        <p id="content-result-game">Bạn đã chiến thắng !!! </p>
+                    </h>
+                    <div class="press">
+                        <button id="play-continute">Continute</button>
+                        <button id="return-menu">Return</button>
+                    </div>
+                </div>   
+           </div>
+        </main>  
+    </div>
+</body>
+<script type="module" src="./js2/index.js"></script>
+<!-- <script type="module" src="./js/index.js"></script> -->
+</html>
