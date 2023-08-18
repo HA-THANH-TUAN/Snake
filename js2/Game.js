@@ -104,22 +104,22 @@ class Game {
         window.document.body.onkeydown=(e)=>{
             console.log(e.key)
             switch (true) {
-                case this.#setting.getKey_up()===e.key:{
+                case this.#setting.getKey_up()===e.key.toLowerCase():{
                     handleClickDrt("U", "D")
                 }
                     
                     break;
-                case this.#setting.getKey_down()===e.key:{
+                case this.#setting.getKey_down()===e.key.toLowerCase():{
                     handleClickDrt("D", "U")
                 }
                     
                     break;
-                case this.#setting.getKey_left()===e.key:{
+                case this.#setting.getKey_left()===e.key.toLowerCase():{
                     handleClickDrt("L", "R")
                 }
                     
                     break;
-                case this.#setting.getKey_right()===e.key:{
+                case this.#setting.getKey_right()===e.key.toLowerCase():{
                     handleClickDrt("R", "L")
                 }
                     
@@ -134,9 +134,14 @@ class Game {
     }
 
     restartGame(){
-        console.log("restart")
-        clearInterval(this.#areaGame.getIdInterval())
-        this.runGame()
+        const isRestart = confirm("Are You Restart ?")
+        if(isRestart){
+            clearInterval(this.#areaGame.getIdInterval())
+    
+            this.runGame() 
+        }
+
+        console.log(isRestart)
     }
     
     pauseGame(){

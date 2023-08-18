@@ -36,10 +36,10 @@ class Setting {
         this.#timeSpeed=timeSpeed;
         this.#permitThrowWall=permitThrowWall;
         this.#numberEmtyBoxRestWin=numberEmtyBoxRestWin;
-        this.#key_up=key_up
-        this.#key_down=key_down
-        this.#key_left=key_left
-        this.#key_right=key_right
+        this.#key_up=key_up.toLowerCase()
+        this.#key_down=key_down.toLowerCase()
+        this.#key_left=key_left.toLowerCase()
+        this.#key_right=key_right.toLowerCase()
         
         this.updateUi()
     }
@@ -127,10 +127,8 @@ class Setting {
     }
     
     updateUi(){
-        console.log("UI GOi LAO")
         Array.from(this.#listElementRadioCheckThrowWall, (radio)=>{
             const valueRadio = radio.value ==="1" ? true : false;
-            console.log("check dieeu kien nef", this.#permitThrowWall === valueRadio    )
             if(this.#permitThrowWall === valueRadio){
                 radio.checked=true;
                 console.log(radio)
@@ -152,62 +150,53 @@ class Setting {
                 else{
                     this.setPermitThrowWall(true);
                 }
-                console.log("ne ban:::",Number(e.target.value))
-                console.log(this.#permitThrowWall)
                 this.updateUi()
             }
         })
         
         this.#elementRestBoxWin.onchange=(e)=>{
-            console.log("rest win")
             const data=e.target.value
-            // this.#elementRestBoxWin.value=data
             this.setNumberEmtyBoxRestWin(data)
             
         }
         
         this.#elementTimeSpeed.onchange=(e)=>{
-            console.log("speed")
             const data=e.target.value
             this.setTimeSpeed(data)
         }
         this.#elementDimensionBox.onchange=(e)=>{
-            console.log("box")
             const data=e.target.value
             this.setDimesionBox(data)
         }
         this.#elementRow.onchange=(e)=>{
-            console.log("Eee row")
-            console.log("row")
             const data=e.target.value
             this.setRow(data)
         }
         this.#elementColumn.onchange=(e)=>{
-            console.log("column")
             const data=e.target.value
             this.setColumn(data)
         }
         
         this.#elementKey_up.onkeyup=(e)=>{
             const km =e.key
-            this.setKey_up(km)
+            this.setKey_up(km.toLowerCase())
         
         }
         
         this.#elementKey_down.onkeyup=(e)=>{
             const km =e.key
-            this.setKey_down(km)
+            this.setKey_down(km.toLowerCase())
         
         }
         
         this.#elementKey_left.onkeyup=(e)=>{
             const km =e.key
-            this.setKey_left(km)
+            this.setKey_left(km.toLowerCase())
         }
         
         this.#elementKey_right.onkeyup=(e)=>{
             const km =e.key
-            this.setKey_right(km)
+            this.setKey_right(km.toLowerCase())
         }
         
 

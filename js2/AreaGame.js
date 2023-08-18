@@ -23,7 +23,6 @@ export default class AreaGame {
 
     #isPause=false
     #isPressContinue=false
-    #is
 
     #row
     #column
@@ -125,45 +124,51 @@ export default class AreaGame {
 
         return result
     }
-
-
-
+    
+    
+    
     createDataInitialSnake(){
         const arrInitialPieces=[]
         const directCreateSnake= Math.random().toFixed() // = 0 : initial snake horizontal; = 1 initial snake vertical
-
+        
         const pointRadomX= (-(this.#column-1)*Math.random()+this.#column-1).toFixed()*this.#dimensionBox;
         const pointRadomY= (-(this.#row-1)*Math.random()+this.#row-1).toFixed()*this.#dimensionBox;
-         
-        console.log("pointRadomX",pointRadomX)
-        console.log("pointRadomY",pointRadomY)
 
-        if(directCreateSnake==0){
-            const isCreateSnakeToRight= (pointRadomX + 3*this.#dimensionBox < this.#width )
-            for (let i=0 ; i<3 ; i++) {
-                if(isCreateSnakeToRight){
-                    arrInitialPieces.unshift(new Point(pointRadomX+i*this.#dimensionBox, pointRadomY))
-                    this.#vectorDrectionInitialSnake="R"
+        if(this.#row>7 && this.#column>8){
+            if(directCreateSnake==0){
+                const isCreateSnakeToRight= (pointRadomX + 3*this.#dimensionBox < this.#width )
+                for (let i=0 ; i<3 ; i++) {
+                    if(isCreateSnakeToRight){
+                        arrInitialPieces.unshift(new Point(pointRadomX+i*this.#dimensionBox, pointRadomY))
+                        // point random on end => it is headSnake
+                        this.#vectorDrectionInitialSnake="R"
+                    }
+                    else{
+                        arrInitialPieces.unshift(new Point(pointRadomX-i*this.#dimensionBox, pointRadomY))
+                        // point random on end => headSnake is point move from point random to left 2 cell
+                        this.#vectorDrectionInitialSnake="L"
+                    }
                 }
-                else{
-                    arrInitialPieces.unshift(new Point(pointRadomX-i*this.#dimensionBox, pointRadomY))
-                    this.#vectorDrectionInitialSnake="L"
+            }
+            else{
+                const isCreateSnakeToTop= (pointRadomY + 3*this.#dimensionBox < this.#height )
+                for (let i=0 ; i<3 ; i++) {
+                    if(isCreateSnakeToTop){
+                        arrInitialPieces.unshift(new Point(pointRadomX, pointRadomY+i*this.#dimensionBox))
+                        this.#vectorDrectionInitialSnake="D"
+                    }
+                    else{
+                        arrInitialPieces.unshift(new Point(pointRadomX, pointRadomY-i*this.#dimensionBox))
+                        this.#vectorDrectionInitialSnake="U"
+                    } 
                 }
             }
         }
+        
         else{
-            const isCreateSnakeToTop= (pointRadomY + 3*this.#dimensionBox < this.#height )
-            for (let i=0 ; i<3 ; i++) {
-                if(isCreateSnakeToTop){
-                    arrInitialPieces.unshift(new Point(pointRadomX, pointRadomY+i*this.#dimensionBox))
-                    this.#vectorDrectionInitialSnake="D"
-                }
-                else{
-                    arrInitialPieces.unshift(new Point(pointRadomX, pointRadomY-i*this.#dimensionBox))
-                    this.#vectorDrectionInitialSnake="U"
-                } 
-            }
+            arrInitialPieces.unshift(new Point(pointRadomX, pointRadomY))
         }
+
 
         console.log(arrInitialPieces ,this.#vectorDrectionInitialSnake)
         this.#dataCreateSnake=arrInitialPieces
